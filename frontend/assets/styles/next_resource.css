@@ -1,0 +1,29 @@
+.form-search,
+.selected-container {
+	border: 1px solid #DDD;
+	border-radius: 5px;
+	background-color: #F1F1F1;
+	padding: 10px;
+}
+
+.h2 {
+	line-height: 40px;
+	font-size: 22.75px;
+}
+
+.h2 a {
+	color: #08c;
+	text-decoration: none;
+}
+
+.next-collection-result {
+	border: 1px solid #DDD;
+	border-radius: 5px;
+	background-color: #F1F1F1;
+	padding: 10px;
+}
+
+.next-collection-result p {
+	line-height: 24px;
+	font-size: 16px;
+}

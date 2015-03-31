@@ -1,8 +1,8 @@
 en:
   plugins:
     next_resource:
-      title: Next Collection
-      label: Next Collection
+      title: Next Resource ID
+      label: Next Resource ID
       search:
         label: Collecting Area
       actions:

@@ -1,7 +1,10 @@
 <%= setup_context :title => "Next Resource ID" %>
 
-<div class="row">
-  <div class="col-md-8">
+<div class="row-fluid">
+<div class="span12">
+<div class="record-pane">
+<div class="row-fluid">
+  <div class="span8">
     <h2><%= I18n.t("plugins.next_resource.title") %></h2>
 
 	<%= render_aspace_partial :partial => "shared/flash_messages" %>
@@ -31,6 +34,9 @@
 
 	<div id="results"></div>
   </div>
+</div>
+</div>
+</div>
 </div>
 
 <script src="<%= "#{AppConfig[:frontend_prefix]}assets/next_resource.js" %>"></script>

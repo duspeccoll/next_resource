@@ -6,18 +6,13 @@ class NextResourceController < ApplicationController
 	end
 
 	def resolve
-		@colls = JSONModel::HTTP::get_json("/repositories/#{session[:repo_id]}/resources", :all_ids => true)
-		@colls_in_range = []
-		@colls.each do |coll|
-			@resource = JSONModel::HTTP::get_json("/repositories/#{session[:repo_id]}/resources/#{coll}")['id_0']
-			if @resource.match(/^#{params[:range]}/)
-				if @resource != "U901"
-					@colls_in_range << @resource
-				end
-			end
+		@range = JSONModel::HTTP::get_json("/repositories/#{session[:repo_id]}/next_resource", 'range' => params[:range])
+
+		if response.code == '200'
+			render :json => @range
+		else
+			render :status => 500
 		end
-	
-		render :json => @colls_in_range
 	end
 
 end

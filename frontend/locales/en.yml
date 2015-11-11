@@ -1,14 +1,14 @@
 en:
   plugins:
     next_resource:
-      title: Next Resource ID
-      label: Next Resource ID
+      title: Next Resource
+      label: Next Resource
       search:
         label: Collecting Area
       actions:
         resolve: Resolve
       range:
         b: Beck Archives
-        d: Carson-Brierly-Giffen Dance Archive
+        d: Carson Brierly Giffen Dance Archive
         m: Manuscript Collections
         u: University Archives

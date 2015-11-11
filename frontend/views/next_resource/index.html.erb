@@ -4,32 +4,29 @@
   <div class="col-md-8">
     <h2><%= I18n.t("plugins.next_resource.title") %></h2>
 
-	<%= render_aspace_partial :partial => "shared/flash_messages" %>
-
+	  <%= render_aspace_partial :partial => "shared/flash_messages" %>
     <%= form_tag({:controller => :next_resource, :action => :resolve}, {:id => "resolve_next_resource", :class => "form-search", :method => "GET"}) do |form| %>
 
     <div class="control-group form-group required">
-	  <label class="control-label" for="resolve-next-resource"><%= I18n.t("plugins.next_resource.search.label") %></label>
-	  <div class="controls">
-	    <select name="range" class="form-control" id="next-resource-range">
-	      <option value="B"><%= I18n.t("plugins.next_resource.range.b") %></option>
-		    <option value="D"><%= I18n.t("plugins.next_resource.range.d") %></option>
-		    <option value="M"><%= I18n.t("plugins.next_resource.range.m") %></option>
-		    <option value="U"><%= I18n.t("plugins.next_resource.range.u") %></option>
-		  </select>
+      <label class="control-label" for="resolve-next-resource"><%= I18n.t("plugins.next_resource.search.label") %></label>
+      <div class="controls">
+        <select name="range" class="form-control" id="next-resource-range">
+          <option value="B"><%= I18n.t("plugins.next_resource.range.b") %></option>
+          <option value="D"><%= I18n.t("plugins.next_resource.range.d") %></option>
+          <option value="M"><%= I18n.t("plugins.next_resource.range.m") %></option>
+          <option value="U"><%= I18n.t("plugins.next_resource.range.u") %></option>
+        </select>
+      </div>
+
+      <button type="submit" id="resolve-next-resource-button" class="btn btn-primary">
+        <%= image_tag "archivesspace/btn-busy.gif", :class => "btn-busy-icon" %>
+        <%= I18n.t("plugins.next_resource.actions.resolve") %>
+      </button>
     </div>
-	</div>
 
-	<div class="control-group form-group">
-	  <button type="submit" id="resolve-next-resource-button" class="btn btn-primary">
-	  <%= image_tag "archivesspace/btn-busy.gif", :class => "btn-busy-icon" %>
-	  <%= I18n.t("plugins.next_resource.actions.resolve") %>
-	  </button>
-	</div>
+    <% end %>
 
-	<% end %>
-
-	<div id="results"></div>
+    <div id="results"></div>
   </div>
 </div>
 

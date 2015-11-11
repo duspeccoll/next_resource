@@ -1,29 +1,13 @@
-.form-search,
-.selected-container {
-	border: 1px solid #DDD;
-	border-radius: 5px;
-	background-color: #F1F1F1;
+.form-group {
+	background-color: #fff;
 	padding: 10px;
 }
 
-.h2 {
-	line-height: 40px;
-	font-size: 22.75px;
-}
-
-.h2 a {
-	color: #08c;
-	text-decoration: none;
+#resolve-next-resource-button {
+	margin: 10px 0 10px 5px;
 }
 
 .next-collection-result {
-	border: 1px solid #DDD;
-	border-radius: 5px;
-	background-color: #F1F1F1;
+	background-color: #fff;
 	padding: 10px;
-}
-
-.next-collection-result p {
-	line-height: 24px;
-	font-size: 16px;
 }

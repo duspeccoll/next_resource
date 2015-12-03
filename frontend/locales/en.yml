@@ -6,7 +6,7 @@ en:
       search:
         label: Collecting Area
       actions:
-        resolve: Resolve
+        generate: Generate ID
       range:
         b: Beck Archives
         d: Carson Brierly Giffen Dance Archive

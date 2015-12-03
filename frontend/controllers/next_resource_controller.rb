@@ -1,18 +1,15 @@
 class NextResourceController < ApplicationController
 
-	set_access_control "view_repository" => [:index, :resolve]
+	set_access_control "view_repository" => [:index, :generate]
 
 	def index
 	end
 
-	def resolve
-		@range = JSONModel::HTTP::get_json("/repositories/#{session[:repo_id]}/next_resource", 'range' => params[:range])
+	def generate 
+		resource_id = JSONModel::HTTP::get_json("/repositories/#{session[:repo_id]}/next_resource", 'range' => params[:range])['next']
 
-		if response.code == '200'
-			render :json => @range
-		else
-			render :status => 500
-		end
+		return redirect_to(:controller => :resources, :action => :new, :resource_id => resource_id)
+	
 	end
 
 end

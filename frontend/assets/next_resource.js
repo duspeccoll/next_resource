@@ -1,27 +1,15 @@
-$(function() {
-
-	var $searchForm = $("#resolve_next_resource");
-	var $results = $("#results");
-
-	$searchForm.ajaxForm({
-		dataType: 'json',
-		type: 'get',
-		beforeSubmit: function() {
-			if (!$("#next-resource-range", $searchForm).val()) {
-				return false;
+$( function() {
+	function getURLParam(sParam) {
+		var sPageURL = window.location.search.substring(1);
+		var sURLVariables = sPageURL.split('&');
+		for(var i = 0; i < sURLVariables.length; i++) {
+			var sParameterName = sURLVariables[i].split('=');
+			if(sParameterName[0] == sParam) {
+				return sParameterName[1];
 			}
-
-			$(".btn", $searchForm).attr("disabled", "disabled").addClass("disabled").addClass("busy");
-		},
-		success: function(json) {
-			$(".btn", $searchForm).removeAttr("disabled").removeClass("disabled").removeClass("busy");
-			var $range = $("#next-resource-range", $searchForm).val();
-			$results.empty();
-			$id = json.max.replace($range, "");
-			$id++;
-			var $pad = "000";
-			$id = $range.concat(($pad + $id).slice(-$pad.length));
-			$results.append(AS.renderTemplate("next_collection_results", {id: $id}));
 		}
-	});
+	}
+
+	$("#resource_id_0_").val(getURLParam('resource_id'));
+
 })

@@ -1,33 +1,47 @@
-<%= setup_context :title => "Next Resource ID" %>
+<%= setup_context :title => I18n.t("plugins.next_resource.title") %>
 
 <div class="row">
   <div class="col-md-8">
     <h2><%= I18n.t("plugins.next_resource.title") %></h2>
 
 	  <%= render_aspace_partial :partial => "shared/flash_messages" %>
-    <%= form_tag({:controller => :next_resource, :action => :generate}, {:id => "resolve_next_resource", :class => "form-search", :method => "GET"}) do |form| %>
 
-    <div class="control-group form-group required">
-      <label class="control-label" for="resolve-next-resource"><%= I18n.t("plugins.next_resource.search.label") %></label>
-      <div class="controls">
-        <select name="range" class="form-control" id="next-resource-range">
-          <option value="B"><%= I18n.t("plugins.next_resource.range.b") %></option>
-          <option value="D"><%= I18n.t("plugins.next_resource.range.d") %></option>
-          <option value="M"><%= I18n.t("plugins.next_resource.range.m") %></option>
-          <option value="U"><%= I18n.t("plugins.next_resource.range.u") %></option>
-        </select>
+    <div id="next_resource">
+
+      <%= form_tag({:controller => :next_resource, :action => :get}, {:id => "next_resource_form", :class => "form-search", :method => "GET"}) do |form| %>
+
+      <div class="control-group form-group">
+        <label class="control-label next-resource-control-label" for="resolve-next-resource"><%= I18n.t("plugins.next_resource.actions.select") %></label>
+        <div class="controls">
+          <select name="area" class="form-control" id="next-resource-area">
+            <option value="B"><%= I18n.t("plugins.next_resource.area.b") %></option>
+            <option value="D"><%= I18n.t("plugins.next_resource.area.d") %></option>
+            <option value="M"><%= I18n.t("plugins.next_resource.area.m") %></option>
+            <option value="U"><%= I18n.t("plugins.next_resource.area.u") %></option>
+          </select>
+        </div>
+
+        <button type="submit" id="get-resource-id-button" class="btn btn-primary">
+          <%= image_tag "archivesspace/btn-busy.gif", :class => "btn-busy-icon" %>
+          <%= I18n.t("plugins.next_resource.actions.get_id") %>
+        </button>
       </div>
 
-      <button type="submit" id="resolve-next-resource-button" class="btn btn-primary">
-        <%= image_tag "archivesspace/btn-busy.gif", :class => "btn-busy-icon" %>
-        <%= I18n.t("plugins.next_resource.actions.generate") %>
-      </button>
-    </div>
+      <% end %>
 
-    <% end %>
+      <div id="next_resource_results"></div>
+
+    </div>
 
   </div>
 </div>
 
+<script src="<%= "#{AppConfig[:frontend_prefix]}assets/next_resource.js" %>"></script>
 <link href="<%= "#{AppConfig[:frontend_prefix]}assets/styles/next_resource.css" %>" media="all" rel="stylesheet" type="text/css"></link>
 
+<div id="next_resource_id_template"><!--
+  <div class="alert alert-info resource_form">
+    <span class="alert-text">The next resource ID is ${id}</span><br />
+    <a href="${APP_PATH}plugins/next_resource/create?id=${id}" class="btn btn-xs btn-primary" id="create-resource"><%= I18n.t("plugins.next_resource.actions.create") %></a>
+  </div>
+--></div>

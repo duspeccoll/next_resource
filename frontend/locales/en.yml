@@ -3,12 +3,15 @@ en:
     next_resource:
       title: Next Resource
       label: Next Resource
-      search:
-        label: Collecting Area
       actions:
-        generate: Generate ID
-      range:
+        create: Create Record
+        get_id: Get ID
+        select: Select Collecting Area
+      area:
         b: Beck Archives
         d: Carson Brierly Giffen Dance Archive
         m: Manuscript Collections
         u: University Archives
+      messages:
+        error: "Error creating resource <strong>%{id}</strong>"
+        success: "Resource <strong>%{id}</strong> created"

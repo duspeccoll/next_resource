@@ -1,13 +1,31 @@
-.form-group {
-	background-color: #fff;
-	padding: 10px;
+#next_resource {
+  border: 1px solid #DDD;
+  border-radius: 5px;
+  background-color: #F1F1F1;
+  padding: 10px;
+	margin-bottom: 5px;
 }
 
-#resolve-next-resource-button {
-	margin: 10px 0 10px 5px;
+.form_title {
+	font-size: 24px;
+	font-family: inherit;
+	font-weight: 500;
+	color: inherit;
+	margin: 5px 0;
 }
 
-.next-collection-result {
-	background-color: #fff;
-	padding: 10px;
+.controls input, select {
+	margin-bottom: 5px;
+}
+
+.alert-text {
+  font-size: 16px;
+}
+
+.next-resource-control-label {
+  font-weight: bold;
+}
+
+select#next-resource-area {
+	width: auto;
 }

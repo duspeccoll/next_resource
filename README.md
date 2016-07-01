@@ -1,4 +1,4 @@
-# Next Accession
+# Next Resource
 
 This plugin queries our ArchivesSpace instance for the next resource identifier in our numbering sequence for a given collecting area, then generates a new minimal resource record (ID, temporary title, date and extent) based on that identifier.
 

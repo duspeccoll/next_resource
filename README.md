@@ -1,11 +1,38 @@
-# next_resource
+# Next Accession
 
-This plugin takes as input a range of collections (selected from the drop-down list), pulls all of the Resource JSON objects from the database, isolates only those collections whose IDs begin with the range's letter, and determines the next collection number up in the sequence.
+This plugin queries our ArchivesSpace instance for the next resource identifier in our numbering sequence for a given collecting area, then generates a new minimal resource record (ID, temporary title, date and extent) based on that identifier.
 
-It is useful for archivists who are accessioning a collection and need to quickly determine what the next collection number is, without having to browse through the whole list.
+## Background
 
-In the future I'd like to provide thecapability of creating a new collection record directly from this plug-in, but I don't know if that fits with our workflows here (since most of the time collection records get spawned from an Accession).
+DU assigns local call numbers to its archival collections based on the order in which they are added to one of our four main collecting areas:
 
-In all likelihood this will only be useful here at DU since it's designed specifically for the way we classify collections here, but others may find it useful as an example of how a plugin with this sort of functionality might work. I'm also open to suggestions on how to improve it; I'm not much of a Rails or jQuery developer yet.
+* Beck Archives (local call numbers beginning with B)
+* Carson Brierly Giffin Dance Library (local call numbers beginning with D)
+* University Archives (local call numbers beginning with U)
+* Special Collections manuscripts (local call numbers beginning with M)
 
-Questions? E-mail kevin.clair@du.edu.
+The numbering schema is the collecting area indicator, followed by a zero-padded three-digit number identifying its order in the sequence. For example, "B005" (the National Asthma Center records) indicates that it is the fifth collection added to the Beck Archives.
+
+## How the plugin works
+
+next_resource contains a [backend API call](https://github.com/duspeccoll/next_resource/blob/master/backend/controllers/next_resource.rb) that takes as input parameter the collecting area to which a resource should be added. It then gets the list of all resources in the database, builds an array of just those resources within the provided collecting area, and checks to see what the last number in the sequence is. It then iterates it by one and returns the resulting identifier.
+
+The frontend allows the user to select the desired collecting area; it then returns the next identifier to the user with the option to create a new resource record using it. When the "Create Record" button is clicked, a new minimal collection record will be created; the user is then re-directed to that record to make whatever edits are required to complete it.
+
+## Screenshots
+
+![Introductory screenshot, displaying the collecting area picker](http://jackflaps.net/img/next_resource_1.png)
+
+The index page, displaying the form where the user may select their desired collecting area.
+
+![When the range is selected, the plugin finds and displays the next call number up](http://jackflaps.net/img/next_resource_2.png)
+
+When the collecting area is selected, an alert displays the next resource ID for that year, as well as a button to generate a new resource record.
+
+![The new resource. Further edits can be made by clicking the 'Edit' button](http://jackflaps.net/img/next_resource_3.png)
+
+Clicking the "Create Record" button creates a new, minimum viable resource record. Additional edits may be made by clicking the "Edit" button.
+
+## Questions
+
+E-mail the author ( kevin dot clair at du dot edu ) or [find me on Twitter](https://twitter.com/jackflaps).

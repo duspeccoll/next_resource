@@ -13,5 +13,6 @@ en:
         m: Manuscript Collections
         u: University Archives
       messages:
+        defaults: "<strong>Caution:</strong> Don't forget to change the date and extent from the defaults!"
         error: "Error creating resource <strong>%{id}</strong>"
         success: "Resource <strong>%{id}</strong> created"

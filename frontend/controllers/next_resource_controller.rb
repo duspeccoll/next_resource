@@ -17,7 +17,8 @@ class NextResourceController < ApplicationController
 		if response.code === "200"
 			res_id = ASUtils.json_parse(response.body)['id']
 			flash[:success] = I18n.t("plugins.next_resource.messages.success", :id => params[:id])
-			redirect_to :controller => :resources, :action => :show, :id => res_id
+            flash[:warning] = I18n.t("plugins.next_resource.messages.defaults")
+			redirect_to :controller => :resources, :action => :edit, :id => res_id
 		else
 			errors = ASUtils.json_parse(response.body)['error']
 			flash[:error] = I18n.t("plugins.next_resource.messages.error", :id => params[:id])

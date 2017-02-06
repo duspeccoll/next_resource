@@ -4,15 +4,11 @@ en:
       title: Next Resource
       label: Next Resource
       actions:
-        create: Create Record
-        get_id: Get ID
-        select: Select Collecting Area
+        submit: Submit
       area:
         b: Beck Archives
         d: Carson Brierly Giffen Dance Archive
         m: Manuscript Collections
         u: University Archives
       messages:
-        defaults: "<strong>Caution:</strong> Don't forget to change the date and extent from the defaults!"
-        error: "Error creating resource <strong>%{id}</strong>"
-        success: "Resource <strong>%{id}</strong> created"
+        success: "New resource created: <strong>%{title}</strong>"

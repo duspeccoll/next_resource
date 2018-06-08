@@ -1,26 +1,35 @@
 <%= setup_context :title => I18n.t("plugins.next_resource.title") %>
 
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-12">
     <%= render_aspace_partial :partial => "shared/flash_messages" %>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-md-8" style="padding-bottom: 10px;">
+  <div class="col-md-12" style="padding: 30px;">
     <h2><%= I18n.t("plugins.next_resource.title") %></h2>
-      <%= form_tag({:controller => :next_resource, :action => :new}, {:class => "form-horizontal", :method => "POST"}) do |form| %>
-        <div class="col-md-8 form-group required">
-          <label class="control-label">Collecting area:</label>
-          <select name="area" class="form-control">
+
+    <%= form_tag({:controller => :next_resource, :action => :new}, {:class => "form-horizontal", :method => "POST"}) do |form| %>
+
+      <div class="form-group required">
+        <label class="control-label col-sm-2">Collecting Area</label>
+        <div class="controls col-sm-4">
+          <select class="form-control" name="area">
+            <option></option>
             <option value="B"><%= I18n.t("plugins.next_resource.area.b") %></option>
             <option value="D"><%= I18n.t("plugins.next_resource.area.d") %></option>
             <option value="M"><%= I18n.t("plugins.next_resource.area.m") %></option>
             <option value="U"><%= I18n.t("plugins.next_resource.area.u") %></option>
           </select>
-          <button class="btn btn-primary"><%= I18n.t("plugins.next_resource.actions.submit") %></button>
         </div>
-      <% end %>
-    </div>
+      </div>
+
+      <div class="form-group">
+        <div class="controls">
+          <button class="btn btn-primary pull-right"><%= I18n.t("plugins.next_resource.actions.submit") %></button>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>

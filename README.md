@@ -21,13 +21,9 @@ The frontend allows the user to select the desired collecting area; it then retu
 
 ## Screenshots
 
-![Introductory screenshot, displaying the collecting area picker](http://jackflaps.net/img/next_resource_1.png)
+[The index page](http://jackflaps.net/img/next_resource_1.png) displays a form where the user may select their desired collecting area.
 
-The index page, displaying the form where the user may select their desired collecting area.
-
-![When the range is selected, the plugin finds and displays the next call number up](http://jackflaps.net/img/next_resource_2.png)
-
-When the collecting area is selected, a form appears with the next resource ID in sequence for the selected collecting area; the user can then either assign a new title to the new resource, or cancel resource creation.
+When the collecting area is selected, [a form appears](http://jackflaps.net/img/next_resource_2.png) with the next resource ID in sequence for the selected collecting area; the user can then either assign a new title to the new resource, or cancel resource creation.
 
 Once the resource is created, the user is directed to view the new resource, from which they may make further edits if they wish.
 

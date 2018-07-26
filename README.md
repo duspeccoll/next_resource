@@ -27,11 +27,9 @@ The index page, displaying the form where the user may select their desired coll
 
 ![When the range is selected, the plugin finds and displays the next call number up](http://jackflaps.net/img/next_resource_2.png)
 
-When the collecting area is selected, an alert displays the next resource ID for that year, as well as a button to generate a new resource record.
+When the collecting area is selected, a form appears with the next resource ID in sequence for the selected collecting area; the user can then either assign a new title to the new resource, or cancel resource creation.
 
-![The new resource. Further edits can be made by clicking the 'Edit' button](http://jackflaps.net/img/next_resource_3.png)
-
-Clicking the "Create Record" button creates a new, minimum viable resource record. Additional edits may be made by clicking the "Edit" button.
+Once the resource is created, the user is directed to view the new resource, from which they may make further edits if they wish.
 
 ## Questions
 

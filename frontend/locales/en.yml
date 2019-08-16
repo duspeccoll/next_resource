@@ -9,6 +9,7 @@ en:
         b: Beck Archives
         d: The Dance Archive
         m: Manuscript Collections
+        p: Penrose Collection
         u: University Archives
       messages:
         success: "New resource created: <strong>%{title}</strong>"

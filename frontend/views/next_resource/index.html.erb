@@ -1,25 +1,34 @@
 <%= setup_context :title => I18n.t("plugins.next_resource.title") %>
 
-<div class="row">
-  <div class="col-md-8">
-    <%= render_aspace_partial :partial => "shared/flash_messages" %>
+<div class="record-pane">
+  <div class="row">
+    <div class="col-md-12">
+      <%= render_aspace_partial :partial => "shared/flash_messages" %>
+      <h2><%= I18n.t("plugins.next_resource.title") %></h2>
+    </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-md-8" style="padding-bottom: 10px;">
-    <h2><%= I18n.t("plugins.next_resource.title") %></h2>
+  <div class="subrecord-form-dummy">
+    <h3>Collecting Area</h3>
+    <div class="subrecord-form-container">
       <%= form_tag({:controller => :next_resource, :action => :new}, {:class => "form-horizontal", :method => "POST"}) do |form| %>
-        <div class="col-md-8 form-group required">
-          <label class="control-label">Collecting area:</label>
-          <select name="area" class="form-control">
-            <option value="B"><%= I18n.t("plugins.next_resource.area.b") %></option>
-            <option value="D"><%= I18n.t("plugins.next_resource.area.d") %></option>
-            <option value="M"><%= I18n.t("plugins.next_resource.area.m") %></option>
-            <option value="P"><%= I18n.t("plugins.next_resource.area.p") %></option>
-            <option value="U"><%= I18n.t("plugins.next_resource.area.u") %></option>
-          </select>
-          <button class="btn btn-primary"><%= I18n.t("plugins.next_resource.actions.submit") %></button>
+        <div class="form-group required">
+          <label class="control-label col-sm-2">Collecting Area</label>
+          <div class="col-sm-9">
+            <select name="area" class="form-control">
+              <option value="B"><%= I18n.t("plugins.next_resource.area.b") %></option>
+              <option value="D"><%= I18n.t("plugins.next_resource.area.d") %></option>
+              <option value="M"><%= I18n.t("plugins.next_resource.area.m") %></option>
+              <option value="P"><%= I18n.t("plugins.next_resource.area.p") %></option>
+              <option value="U"><%= I18n.t("plugins.next_resource.area.u") %></option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="controls">
+            <button class="btn btn-primary"><%= I18n.t("plugins.next_resource.actions.submit") %></button>
+          </div>
         </div>
       <% end %>
     </div>

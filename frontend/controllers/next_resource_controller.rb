@@ -38,8 +38,15 @@ class NextResourceController < ApplicationController
 	end
 
 	def post_resource(params)
+    lang_materials = []
 		dates = []
 		extents = []
+
+    # language of materials defaults to "Undefined"
+    # (can be updated after initial post by a processing archivist)
+    lang_materials.push(JSONModel(:lang_material).new({
+      :language_and_script => JSONModel(:language_and_script).new({:language => "und"})
+    }))
 
 		dates.push(JSONModel(:date).new({
 			:expression => "Date Not Yet Determined",
@@ -53,11 +60,16 @@ class NextResourceController < ApplicationController
 			:extent_type => "linear_feet"
 		}))
 
+    # language of description defaults to lang = "English," script = "Latin"
 		record = JSONModel(:resource).new({
 			:title => params[:title],
 			:publish => false,
 			:id_0 => params[:id],
 			:level => "collection",
+      :finding_aid_description_rules => "dacs",
+      :finding_aid_language => "eng",
+      :finding_aid_script => "Latn",
+      :lang_materials => lang_materials,
 			:dates => dates,
 			:extents => extents
 		}).to_json
